@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0E1E33;
+  --color-navy-light: #16294a;
+  --color-paper: #F3F5F6;
+  --color-paper-dim: #e7eaec;
+  --color-coral: #E8455B;
+  --color-coral-dim: #fbe4e7;
+  --color-green: #1F8A63;
+  --color-green-dim: #e2f3ec;
+  --color-gold: #E3A83B;
+  --color-gold-dim: #faf0dc;
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-navy);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Signature pulse-line motif */
+@keyframes pulse-travel {
+  0% { stroke-dashoffset: 340; }
+  100% { stroke-dashoffset: 0; }
+}
+.pulse-line-path {
+  stroke-dasharray: 340;
+  animation: pulse-travel 2.6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-line-path {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-coral);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-paper-dim);
+  border-radius: 999px;
+}
