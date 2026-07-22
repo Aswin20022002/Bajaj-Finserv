@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #005DAC;
+  --color-brand-dark: #0B2C47;
+  --color-brand-dim: #E6EFF7;
+  --color-surface: #F4F6F8;
+  --color-surface-dim: #E7EBEF;
+  --color-ink: #16232E;
+
+  --color-positive: #1B7A4D;
+  --color-positive-dim: #E2F1E9;
+  --color-watch: #A8710E;
+  --color-watch-dim: #F8EEDB;
+  --color-risk: #A93B3B;
+  --color-risk-dim: #F5E4E4;
+
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Pulse-line motif used in the logo mark */
+@keyframes pulse-travel {
+  0% { stroke-dashoffset: 340; }
+  100% { stroke-dashoffset: 0; }
+}
+.pulse-line-path {
+  stroke-dasharray: 340;
+  animation: pulse-travel 2.6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-line-path {
+    animation: none;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-dim);
+  border-radius: 999px;
+}
